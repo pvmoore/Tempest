@@ -1,0 +1,18 @@
+#note 'Creating books table'
+#include 'create_books.sql'
+
+select * from books;
+
+#note 'Checking books table...'
+
+#column name='ref' type='int'
+#column name='title' type='string'
+#column name='author' type='string'
+#column name='published' type='date'
+#column name='pages' type='int'
+
+'1','The Fellowship of the Ring','JRR Tolkien','2000/11/19','1000'
+'2','The Two Towers','JRR Tolkien','1999/01/01','1000'
+'3','The Return of the King','JRR Tolkien','1983/07/06','1000'
+
+#check query

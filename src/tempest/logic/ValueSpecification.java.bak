@@ -1,0 +1,28 @@
+package tempest.logic;
+
+import tempest.*;
+import tempest.types.*;
+import tempest.interfaces.*;
+import tempest.sql.*;
+import tempest.utils.*;
+import java.sql.*;
+
+/**
+ * can be literal or columnreference
+ */
+public class ValueSpecification implements ValueExpression {
+  private Function function   = null;
+  private Object object       = null;
+
+  public ValueSpecification() {}
+
+  public void parseExpression(String s,TableReference[] tr) throws SQLException {
+    object=s;
+  }
+  public Object evaluate(HashList data) {
+    // if this is a literal return TypedObject literal
+    // if this is a columnname return column value
+    // perform function if necessary
+    return object;
+  }
+}

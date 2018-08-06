@@ -1,0 +1,55 @@
+package tempest.types;
+
+import tempest.*;
+import java.sql.*;
+import java.util.*;
+import tempest.data.*;
+import tempest.utils.*;
+import tempest.arrays.*;
+import tempest.interfaces.*;
+
+public class VirtualTable extends Table {
+  // protected :
+  //   String identifier
+  //   Hashtable columns = new Hashtable();
+  private SortTree rows = null;
+
+  public VirtualTable(String identifier,SortTree sortTree) {
+    super(identifier);
+    rows=sortTree;
+  }
+  protected VirtualTable(String identifier) {
+    super(identifier);
+    // initialise here
+    // set rows if any exist
+    // set columns if this table already exists
+    // otherwise this is a newly created, empty table
+  }
+  /////////////////////////////////////////////////////////// overloaded methods
+  public void addColumn(Column c) throws SQLException {
+    super.addColumn(c);
+    //todo alter all Rows in this table to have more cols?
+  }
+  ///////////////////////////////////////////////////////////// abstract methods
+  public int getCardinality() { return rows.size(); }
+  public _ROW getRow(int index) throws SQLException {
+    return (_ROW)rows.get(index);
+  }
+  public void addRow(_ROW row,Session session) throws SQLException {
+    rows.add(row);
+    Engine.getLogger().log("insertRow : "+row);
+  }
+  public void deleteRow(int index,Session session) throws SQLException {
+    throw new IllegalArgumentException("Can't remove records from a Virtual Table");
+  }
+  public void truncate() {
+    rows.clear();
+  }
+  public void commit(Session session) throws SQLException {
+
+  }
+  public void rollback(Session session) throws SQLException {
+
+  }
+  //////////////////////////////////////////////////////////////////////////////
+}

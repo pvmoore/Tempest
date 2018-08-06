@@ -1,0 +1,77 @@
+
+convert to Java 5.0
+
+test nested functions
+
+continue with intervals.
+add type length parsing to Column.
+
+make sure that "Identifiers" work
+
+handle GROUP BY and HAVING
+test nulls in _ROW and check out group by ??!
+distinct
+
+SQL:1999 DATA TYPES
+-------------------
+integer,int (int)
+smallint (int)
+numeric
+decimal
+real (float)
+double (double)
+float (double)
+character,char
+char varying,varchar
+character large object,clob
+national character,national char,nchar
+national character varying,national char varying,nchar varying
+national character large object,nchar large object,nclob
+bit
+bit varying
+binary large object,blob
+date(p)
+time(p)
+timestamp(p)
+time(p) with time zone
+timestamp(p) with time zone
+interval year(p)
+interval month(p)
+interval year(p) to month
+interval day to hour
+interval day(6) to minute
+interval second(7)
+interval day(5) to second(10)
+interval minute(3) to second(4)
+boolean
+<datatype> array[maxcardinality]
+row(fld1,...,fldn)
+
+implement DELETE
+implement UPDATE
+
+implement aggregate functions
+
+need to adapt RowIterator to cycle over more than 1 table if specified
+
+handle JOINs
+handle UNIONs
+
+insert needs to use ValueExpressions instead of literals in values.
+
+Database and Catalog may be different name for same thing
+ - may drop catalog and just have database.schema.table.column
+ - or always have only DEFAULT catalog in database (1)
+
+need to create INFORMATION_SCHEMA in Catalog
+
+use SQL.execute() method to execute sql instead of inside
+- constructor and possibly getters and setters
+
+add int(),long(),double() methods to data types
+ - optimization
+
+rewrite RowIterator.getNext()
+test wheres further
+
+test nulls with ValueExpressions and BooleanExpressions

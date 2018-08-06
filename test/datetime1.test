@@ -1,0 +1,67 @@
+#note 'Testing datetime types'
+
+#include 'create_person.sql'
+
+select * from person;
+
+#column name='name' type='string'
+#column name='age' type='int'
+#column name='birthdate' type='date'
+#column name='bornexactly' type='timestamp'
+#column name='borntime' type='time'
+
+'peter','31','1702/10/10','1702/10/10 03:15:00','03:15:00'
+
+#check query expect fail
+
+#column name='name' type='string'
+#column name='age' type='int'
+#column name='birthdate' type='date'
+#column name='bornexactly' type='timestamp'
+#column name='borntime' type='time'
+
+'peter','31','1702/03/09','1702/03/09 03:15:00','03:15:00.3000'
+
+#check query
+
+#column name='name' type='string'
+#column name='age' type='int'
+#column name='birthdate' type='date'
+#column name='bornexactly' type='timestamp'
+#column name='borntime' type='time'
+
+'peter','31','1702/03/09','1702/03/09 03:00:00','03:15:00.3000'
+
+#check query expect fail
+
+select birthdate + INTERVAL '0001-01' YEAR(4) to month(2) as firstbirthday from person;
+
+#column name='firstbirthday' type='date'
+
+'1703/04/09'
+
+#check query
+
+select birthdate - INTERVAL '0001-01' YEAR(4) to month(2) as firstbirthday from person;
+
+#column name='firstbirthday' type='date'
+
+'1701/02/09'
+
+#check query
+
+select birthdate - INTERVAL '3' months(1) as firstbirthday from person;
+
+#column name='firstbirthday' type='date'
+
+'1701/12/09'
+
+#check query
+
+create table intervals (my_yminterval INTERVAL year to month);
+
+select * from intervals;
+
+#column name='my_yminterval' type='interval year to month'
+
+#check query

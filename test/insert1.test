@@ -1,0 +1,58 @@
+#note 'Creating books2 table'
+
+create table books2(num1 int,
+                    num2 long,
+                    flag bool,
+                    num4 real,
+                    words text);
+
+select * from books2;
+
+#note 'Checking books2 table...'
+
+#column name='num1' type='int' nullable='true' unique='false' pk='false'
+#column name='num2' type='long' nullable='true' unique='false' pk='false'
+#column name='flag' type='boolean' nullable='true' unique='false' pk='false'
+#column name='num4' type='double' nullable='true' unique='false' pk='false'
+#column name='words' type='text' nullable='true' unique='false' pk='false'
+-- no rows. just checking table created
+#check query
+
+#note 'Checking creating table with default values...'
+
+create table books3(num1 int default 1,
+                    num2 long default 2,
+                    flag bool default true,
+                    num4 real default 1.1,
+                    words text default 'hello');
+
+#column name='num1' type='int' default='1' nullable='true' unique='false' pk='false'
+#column name='num2' type='long' default='2' nullable='true' unique='false' pk='false'
+#column name='flag' type='boolean' default='true' nullable='true' unique='false' pk='false'
+#column name='num4' type='double' default='1.1' nullable='true' unique='false' pk='false'
+#column name='words' type='text' default='hello' nullable='true' unique='false' pk='false'
+
+#check query expect success
+
+#note 'Checking PRIMARY KEY not set'
+select * from books3;
+#column name='num1' type='int' default='1' nullable='true' unique='false' pk='true'
+#column name='num2' type='long' default='2' nullable='true' unique='false' pk='false'
+#column name='flag' type='boolean' default='true' nullable='true' unique='false' pk='false'
+#column name='num4' type='double' default='1.1' nullable='true' unique='false' pk='false'
+#column name='words' type='text' default='hello' nullable='true' unique='false' pk='false'
+#check query expect fail
+
+#note 'Checking DEFAULT set properly'
+select * from books3;
+#column name='num1' type='int' default='4' nullable='true' unique='false' pk='true'
+#column name='num2' type='long' default='2' nullable='true' unique='false' pk='false'
+#column name='flag' type='boolean' default='true' nullable='true' unique='false' pk='false'
+#column name='num4' type='double' default='1.1' nullable='true' unique='false' pk='false'
+#column name='words' type='text' default='hello' nullable='true' unique='false' pk='false'
+#check query expect fail
+
+#note 'Check cannot recreate same table'
+#expect exception
+create table books3(ref int);
+

@@ -1,0 +1,14 @@
+<root name="Test creating books">
+	<sql>
+		create table books(ref int,title text);
+	</sql>
+	<sql>
+		select * from books;
+	</sql>
+	<table name="books">
+		<column name="ref" type="int" default="" pk="false" nullable="true" unique="false"/>
+	</table>
+	<check table="books" fail="true" />
+	<check updates="1" />
+	<include file="books2.xml" />
+</root>
