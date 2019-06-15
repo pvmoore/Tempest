@@ -62,6 +62,7 @@ public class SQLSelect extends SQL {
             WHEREpos = tz.indexOf(Keyword.WHERE);
             JOINpos = tz.indexOf(Keyword.JOIN);
             ORDERBYpos = tz.indexOf(Keyword.ORDER);
+
             if(ORDERBYpos != -1) {
                 if(tz.getType(ORDERBYpos + 1) != Keyword.BY) {
                     throw new SQLException("Syntax error at " + tz.getToken(ORDERBYpos));

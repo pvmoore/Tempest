@@ -10,8 +10,8 @@ public class Database {
     //
     //private static Hashtable databases = new Hashtable();
     //
-    private int type = MEMORY;
-    private String name = null;
+    final private int type;
+    final private String name;
     private boolean available = false;
     private HashList catalogs = new HashList();
     private Catalog defaultCatalog = null;

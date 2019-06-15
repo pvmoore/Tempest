@@ -21,11 +21,11 @@ public class MemoryTable extends Table {
     }
 
     public String toString() {
-        StringBuffer buf = new StringBuffer("TABLE " + identifier + " [\n");
+        StringBuilder buf = new StringBuilder("TABLE " + identifier + " [\n");
         for(int i = 0; columns != null && i < columns.length; i++) {
-            buf.append("" + columns[i] + "\n");
+            buf.append(columns[i]).append("\n");
         }
-        buf.append("] " + rows.size() + " rows");
+        buf.append("] ").append(rows.size()).append(" rows");
         return buf.toString();
     }
 

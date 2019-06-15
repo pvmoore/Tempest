@@ -5,10 +5,10 @@ import tempest.collections.HashList;
 import java.sql.SQLException;
 
 public class Schema {
-    private String identifier = null;
+    final private String identifier;
+    final private Catalog catalog;
     private HashList tables = new HashList();
     private HashList views = new HashList();
-    private Catalog catalog = null;
 
     public Schema(Catalog c, String identifier) {
         catalog = c;

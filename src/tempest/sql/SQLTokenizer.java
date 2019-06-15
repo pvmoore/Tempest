@@ -192,11 +192,11 @@ public class SQLTokenizer {
     }
 
     public String toString() {
-        StringBuffer buf = new StringBuffer("" + (last - first + 1) + " TOKENS [");
+        StringBuilder buf = new StringBuilder("" + (last - first + 1) + " TOKENS [");
         int n = 0;
         for(int i = first; i <= last; i++) {
-            buf.append("\n" + (n++) + " " + Keyword.getString(types.get(i)));
-            buf.append("\t" + tokens.get(i));
+            buf.append("\n").append(n++).append(" ").append(Keyword.getString(types.get(i)));
+            buf.append("\t").append(tokens.get(i));
         }
         buf.append("\n]");
         return buf.toString();

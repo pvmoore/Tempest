@@ -6,7 +6,7 @@ import tempest.data._ROW;
 import java.sql.SQLException;
 
 public abstract class Table {
-    protected String identifier = null;
+    final protected String identifier;
     protected Column[] columns = null;
 
     protected Table(String identifier) {

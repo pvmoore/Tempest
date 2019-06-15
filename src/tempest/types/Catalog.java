@@ -3,10 +3,10 @@ package tempest.types;
 import tempest.collections.HashList;
 
 public class Catalog {
-    private String identifier = null;
-    private HashList schemas = new HashList();
+    final private String identifier;
+    final private Database database;
+    private HashList schemas     = new HashList();
     private Schema defaultSchema = null;
-    private Database database = null;
 
     //this may be the same as a database
     public Catalog(Database db, String id) {
@@ -16,7 +16,6 @@ public class Catalog {
 
     //////////////////////////////////////////////////////////////////////////////
     public String getName() { return identifier; }
-
     public Database getDatabase() { return database; }
 
     public void addSchema(Schema s) {

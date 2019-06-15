@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class TableList {
     private Session session;
-    private ArrayList<String> identifiers = new ArrayList<String>();
-    private ArrayList<Table> tables = new ArrayList<Table>();
+    private ArrayList<String> identifiers = new ArrayList<>();
+    private ArrayList<Table> tables = new ArrayList<>();
 
     //////////////////////////////////////////////////////////////////////////////
     public TableList(Session session) {
@@ -43,15 +43,14 @@ public class TableList {
     }
 
     public Column[] getAllColumns() throws SQLException {
-        ArrayList<Column> al = new ArrayList<Column>();
-        for(int i = 0; i < tables.size(); i++) {
-            Table t = tables.get(i);
+        var al = new ArrayList<Column>();
+        for(Table t : tables) {
             Column[] cols = t.getColumns();
             for(int c = 0; cols != null && c < cols.length; c++) {
                 al.add(cols[c]);
             }
         }
-        return (Column[])al.toArray(new Column[0]);
+        return al.toArray(new Column[0]);
     }
 
     public Column getColumn(String s) throws SQLException {
@@ -64,15 +63,14 @@ public class TableList {
             s = s.substring(dot + 1);
             int index = identifiers.indexOf(correlation);
             if(index == -1) throw new SQLException("Unknown TABLE '" + correlation + "'");
-            Table table = (Table)tables.get(index);
+            Table table = tables.get(index);
             Column col = table.getColumn(s);
             if(col == null) throw new SQLException("Unknown column '" + s + "'");
             return col;
         } else {
             // no correlation specified so check all tables
             Column col = null;
-            for(int i = 0; i < tables.size(); i++) {
-                Table t = (Table)tables.get(i);
+            for(Table t : tables) {
                 Column col2 = t.getColumn(s);
                 if(col2 != null) {
                     if(col != null) throw new SQLException("Ambiguous column reference '" + s + "'");

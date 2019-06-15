@@ -20,7 +20,7 @@ public abstract class SQL {
             throw new SQLException("No SQL to process");
         }
         //if(s==null || s.trim().length()==0) throw new SQLException("No SQL to process");
-        s = s.trim();
+        //s = s.trim();
         //String upper = s.toUpperCase();
         String token = tz.getToken(0);
         tz = tz.split(1);

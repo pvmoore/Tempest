@@ -1,10 +1,10 @@
 package tempest;
 
 public class IntArray {
-    public static final int NULL = Integer.MIN_VALUE;
+    private static final int NULL = Integer.MIN_VALUE;
 
+    private int[] array;
     private int length = 0;
-    private int[] array = null;
     private int growth = 8;
     private int def = NULL;
 
@@ -33,7 +33,7 @@ public class IntArray {
 
     public Object getObject(int index) {
         if(index >= length || index < 0) throw new ArrayIndexOutOfBoundsException("" + index + " / " + length);
-        return new Integer(array[index]);
+        return array[index];
     }
 
     public void add(Object o) {

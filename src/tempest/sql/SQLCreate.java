@@ -87,9 +87,9 @@ public class SQLCreate extends SQL {
         if("INTERVAL".equals(typeStr)) {
             throw new SQLException("TODO");
         } else {
-            Integer n = typeHash.get(typeStr);
+            var n = typeHash.get(typeStr);
             if(n != null) {
-                type = n.intValue();
+                type = n;
             }
         }
         Column col = new Column(colIdentifier, type);
@@ -167,48 +167,48 @@ public class SQLCreate extends SQL {
         return table;
     }
 
-    private static final Hashtable<String, Integer> typeHash = new Hashtable<String, Integer>();
+    private static final Hashtable<String, Integer> typeHash = new Hashtable<>();
 
     static {
         typeHash.put("TEXT", TypedObject.STRING);
         typeHash.put("STRING", TypedObject.STRING);
-        typeHash.put("LONGVARCHAR", new Integer(TypedObject.STRING));
-        typeHash.put("VARCHAR", new Integer(TypedObject.STRING));
-        typeHash.put("VARCHAR2", new Integer(TypedObject.STRING));
-        typeHash.put("CHAR", new Integer(TypedObject.STRING));
-        typeHash.put("CHARACTER", new Integer(TypedObject.STRING));
-        typeHash.put("AUTONUMBER", new Integer(TypedObject.INT));
-        typeHash.put("SERIAL", new Integer(TypedObject.INT));
-        typeHash.put("AUTOINCREMENT", new Integer(TypedObject.INT));
-        typeHash.put("IDENTITY", new Integer(TypedObject.INT));
-        typeHash.put("INT", new Integer(TypedObject.INT));
-        typeHash.put("INT4", new Integer(TypedObject.INT));
-        typeHash.put("INT8", new Integer(TypedObject.LONG));
-        typeHash.put("FLOAT4", new Integer(TypedObject.FLOAT));
-        typeHash.put("FLOAT8", new Integer(TypedObject.DOUBLE));
-        typeHash.put("INTEGER", new Integer(TypedObject.INT));
-        //typeHash.put("BYTE",          new Integer(TypedObject.BYTE));
-        //typeHash.put("TINYINT",       new Integer(TypedObject.BYTE));
-        typeHash.put("LONG", new Integer(TypedObject.LONG));
-        typeHash.put("BIGINT", new Integer(TypedObject.LONG));
-        typeHash.put("SMALLINT", new Integer(TypedObject.INT));
-        typeHash.put("DOUBLE", new Integer(TypedObject.DOUBLE));
-        typeHash.put("FLOAT", new Integer(TypedObject.FLOAT));
-        typeHash.put("REAL", new Integer(TypedObject.DOUBLE));
-        typeHash.put("DATE", new Integer(TypedObject.DATE));
-        typeHash.put("DATETIME", new Integer(TypedObject.TIMESTAMP));
-        typeHash.put("TIMESTAMP", new Integer(TypedObject.TIMESTAMP));
-        typeHash.put("TIME", new Integer(TypedObject.TIME));
-        typeHash.put("BIT", new Integer(TypedObject.BOOLEAN));
-        typeHash.put("BOOLEAN", new Integer(TypedObject.BOOLEAN));
-        typeHash.put("BOOL", new Integer(TypedObject.BOOLEAN));
-        typeHash.put("INTERVALYEARTOMONTH", new Integer(TypedObject.YMINTERVAL));
-        typeHash.put("INTERVALYEAR", new Integer(TypedObject.YMINTERVAL));
-        typeHash.put("INTERVALMONTH", new Integer(TypedObject.YMINTERVAL));
-        typeHash.put("INTERVALDAYTOSECOND", new Integer(TypedObject.YMINTERVAL));
-        typeHash.put("INTERVALDAYTOMINUTE", new Integer(TypedObject.YMINTERVAL));
-        typeHash.put("INTERVALDAYTOHOUR", new Integer(TypedObject.YMINTERVAL));
-        typeHash.put("INTERVALSECOND", new Integer(TypedObject.YMINTERVAL));
-        typeHash.put("INTERVALMINUTETOSECOND", new Integer(TypedObject.YMINTERVAL));
+        typeHash.put("LONGVARCHAR", TypedObject.STRING);
+        typeHash.put("VARCHAR", TypedObject.STRING);
+        typeHash.put("VARCHAR2", TypedObject.STRING);
+        typeHash.put("CHAR", TypedObject.STRING);
+        typeHash.put("CHARACTER", TypedObject.STRING);
+        typeHash.put("AUTONUMBER", TypedObject.INT);
+        typeHash.put("SERIAL", TypedObject.INT);
+        typeHash.put("AUTOINCREMENT", TypedObject.INT);
+        typeHash.put("IDENTITY", TypedObject.INT);
+        typeHash.put("INT", TypedObject.INT);
+        typeHash.put("INT4", TypedObject.INT);
+        typeHash.put("INT8", TypedObject.LONG);
+        typeHash.put("FLOAT4", TypedObject.FLOAT);
+        typeHash.put("FLOAT8", TypedObject.DOUBLE);
+        typeHash.put("INTEGER", TypedObject.INT);
+        //typeHash.put("BYTE",          TypedObject.BYTE);
+        //typeHash.put("TINYINT",       TypedObject.BYTE);
+        typeHash.put("LONG", TypedObject.LONG);
+        typeHash.put("BIGINT", TypedObject.LONG);
+        typeHash.put("SMALLINT", TypedObject.INT);
+        typeHash.put("DOUBLE", TypedObject.DOUBLE);
+        typeHash.put("FLOAT", TypedObject.FLOAT);
+        typeHash.put("REAL", TypedObject.DOUBLE);
+        typeHash.put("DATE", TypedObject.DATE);
+        typeHash.put("DATETIME", TypedObject.TIMESTAMP);
+        typeHash.put("TIMESTAMP", TypedObject.TIMESTAMP);
+        typeHash.put("TIME", TypedObject.TIME);
+        typeHash.put("BIT", TypedObject.BOOLEAN);
+        typeHash.put("BOOLEAN", TypedObject.BOOLEAN);
+        typeHash.put("BOOL", TypedObject.BOOLEAN);
+        typeHash.put("INTERVALYEARTOMONTH", TypedObject.YMINTERVAL);
+        typeHash.put("INTERVALYEAR", TypedObject.YMINTERVAL);
+        typeHash.put("INTERVALMONTH", TypedObject.YMINTERVAL);
+        typeHash.put("INTERVALDAYTOSECOND", TypedObject.YMINTERVAL);
+        typeHash.put("INTERVALDAYTOMINUTE", TypedObject.YMINTERVAL);
+        typeHash.put("INTERVALDAYTOHOUR", TypedObject.YMINTERVAL);
+        typeHash.put("INTERVALSECOND", TypedObject.YMINTERVAL);
+        typeHash.put("INTERVALMINUTETOSECOND", TypedObject.YMINTERVAL);
     }
 }

@@ -11,7 +11,6 @@ public class Tools {
     /**
      * static utilities
      */
-    private Tools() {}
 
     public static String removeLeadingZeros(String s) {
         if(s == null) return "";
